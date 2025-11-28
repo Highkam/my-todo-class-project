@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthenticatorContext } from "../../contexts/Authenticator";
-
+import ErrorButton from "../../utils/Errorbutton";
 const Login = () => {
     const { login } = useContext(AuthenticatorContext);
     const [email, setEmail] = useState<string>("");
@@ -24,6 +24,7 @@ const Login = () => {
                 <div><button type="submit">Log in</button></div>
             </form>
             <div>{message}</div>
+            <ErrorButton />
         </div>
     )
 }
