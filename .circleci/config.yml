@@ -17,19 +17,24 @@ jobs:
   deploy:
     executor: node/default
     environment:
-      FIREBASE_TOKEN: ${FIREBASE_TOKEN}
+      GOOGLE_APPLICATION_CREDENTIALS: service-account.json
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
 
       - run:
-          name: Build project
-          command: npm run build
+          name: Crear archivo de credenciales
+          command: |
+            echo "$SERVICE_ACCOUNT_JSON" > service-account.json
 
       - run:
           name: Install Firebase CLI
           command: npm install -g firebase-tools
+
+      - run:
+          name: Build project
+          command: npm run build
 
       - run:
           name: Deploy to Firebase Hosting
