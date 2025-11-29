@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "to-do-6bbda"
-  }
+  },
+  "targets": {
+    "to-do-6bbda": {
+      "hosting": {
+        "default": [
+          "my-todo-final"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
