@@ -16,6 +16,8 @@ jobs:
 
   deploy:
     executor: node/default
+    environment:
+      FIREBASE_TOKEN: ${FIREBASE_TOKEN}
     steps:
       - checkout
       - node/install-packages:
@@ -31,9 +33,7 @@ jobs:
 
       - run:
           name: Deploy to Firebase Hosting
-          command: firebase deploy --non-interactive
-          environment:
-            FIREBASE_TOKEN: ${FIREBASE_TOKEN}
+          command: firebase deploy --only hosting:to-do-6bbda --non-interactive
 
 workflows:
   test_and_deploy:
